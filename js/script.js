@@ -10,13 +10,13 @@ var userEmail = prompt('Enter your email');
 let email = userEmail.toLowerCase().replaceAll(" ", "");
 
 if (email.indexOf("@") == -1) {
-  document.write(`<li>not valid email <b>${email}</b> (symbol @ not exist)</li>`);
+  document.write(`<li> Email: not valid email <b>${email}</b> (symbol @ not exist)</li>`);
 } else if (email.indexOf("@") == 0) {
-  document.write(`<li>not valid email <b>${email}</b> (symbol @ find in first place)</li>`);
+  document.write(`<li> Email: not valid email <b>${email}</b> (symbol @ find in first place)</li>`);
 } else if (email.indexOf("@") == email.length - 1) {
-  document.write(`<li>not valid email <b>${email}</b> (symbol @ find in last place)</li>`);
+  document.write(`<li> Email: not valid email <b>${email}</b> (symbol @ find in last place)</li>`);
 } else {
-  document.write(`<li>Email: ${email}</li>`);
+  document.write(`<li> Email: ${email}</li>`);
 }
 
 //------------------------------------------------------------//
