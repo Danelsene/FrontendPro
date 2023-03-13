@@ -23,3 +23,4 @@ if (h <= 0){
     sumOfFactorials += factorial; 
   }
   console.log(sumOfFactorials);
+  document.write(`Your sum of factorials equals ${sumOfFactorials}`)
