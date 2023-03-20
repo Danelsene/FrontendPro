@@ -1,42 +1,39 @@
-let firstAnswer = +prompt("Скільки буде 2 + 2?");
-let sum = 0;
+var suit = ['clubs', 'spades', 'diamonds', 'hearts'];
+var picture = ['jack', 'queen', 'king', 'ace'];
+var cards = [];
 
-if (firstAnswer === null) {
-    sum += 0;
-} else if (firstAnswer == "4") {
-    sum += 10;
+for(var i = 2; i <= 10; i++){
+    for(var j = 0; j < suit.length; j++) {
+        cardInfo = `<div class="card_info">${i}<img src="images/${suit[j]}.svg" alt="${suit[j]}"></div>`
+
+        cards.push(`<div class="card">
+            ${cardInfo}
+            ${cardInfo}
+        </div>`)
+    }
+}
+// console.log(cards[1])
+
+for(var k = 0; k < picture.length; k++) {
+    for(var j = 0; j < suit.length; j++) {
+        if(picture[k] == "ace") {
+            cardInfo = `<div class="card_info">T<img src="images/${suit[j]}.svg" alt="${suit[j]}"></div>`
+            cardPic = `<img class="person" src="images/${suit[j]}.svg" alt="${suit[j]}">`
+        } else {
+        cardInfo = `<div class="card_info">${picture[k][0].toUpperCase()}<img src="images/${suit[j]}.svg" alt="${suit[j]}"></div>`
+        cardPic = `<img class="person" src="images/${picture[k]}.svg" alt="${suit[j]}">`
+        }
+        cards.push(`<div class="card">
+            ${cardInfo}
+            ${cardPic}
+            ${cardInfo}
+        </div>`)
+
+    }
 }
 
-let secondAnswer = prompt("Сонце встає на сході?");
+let join = cards.join("");
 
-if (secondAnswer === null){
-    sum += 0;
-} else if (secondAnswer.trim().toLowerCase() == "так" || secondAnswer.trim().toLowerCase() == "да") {
-    sum += 10;
-}
-
-let thirdAnswer = prompt("Скільки буде 5 / 0?");
-
-if (thirdAnswer === null){
-    sum += 0;
-} else if (thirdAnswer == "0" || thirdAnswer.trim().toLowerCase() == "нуль" || thirdAnswer.trim().toLowerCase() == "ноль") {
-    sum += 10;
-}
-
-let fourthAnswer = prompt("Якого кольору небо?");
-
-if (fourthAnswer === null){
-    sum += 0;
- } else if (fourthAnswer.trim().toLowerCase() == "блакитне" || fourthAnswer.trim().toLowerCase() == "синє" || fourthAnswer.trim().toLowerCase() == "голубе" || fourthAnswer.trim().toLowerCase() == "лазурне"){
-    sum += 10;
-}
-
-let fifthAnswer = +prompt("Яка правильна відповідь на головне питання життя, всесвіту та т.д?");
-
-if (fifthAnswer === null){
-    sum += 0;
- } else if (fifthAnswer == "42") {
-    sum += 10;
-}
-
-alert(sum);
+document.write(`<div class="wrapper">
+    ${join}
+    </div)`);
