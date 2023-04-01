@@ -1,41 +1,37 @@
-//-----------------------------1--------------------------------//
+const a = 2;
+const b = 3;
 
-let arrA = new Array(+prompt('Tell me the length of the array?', 4));
-let arrB = [];
-
-//------------------------------2 and 3-----------------------------------//
-
-metka:
-for(let i = 0; i < arrA.length; i++) {
-    arrA[i] = Math.floor(Math.random()*10);
-    for (let j = 2; j < arrA[i]; j++) {
-        if(arrA[i] % j == 0) {
-            continue metka;
-        }
-    }
-    arrB[i] = arrA[i];
+function sum (a, b) {
+    return a + b;
 }
 
-document.write(arrA);
+    sum(a, b);
+    console.log(sum(a, b));
+    document.write(sum(a, b)); //----print sum result
 
-document.write(`<br/ >`);
+    document.write(`<hr/>`)
 
-arrB = arrB.filter(Boolean);
-document.write(arrB);
-document.write(`<br/ >`);
+let c = function (any) {
+    return any - 2;
+}
 
-//------------------------------4--------------------------------------//
+    console.log(typeof(c)) //----check c type
+    c(sum(a, b));
+    console.log(c(sum(a, b)));
+    document.write(c(sum(a, b))); //------ rusult of c function
 
-minValue = maxValue = arrB[0];
+    document.write(`<hr/>`)
 
-for(let n = 0; n < arrB.length; n++) {
-    if(arrB[n] < minValue) {
-        minValue = arrB[n];
-    } else if (arrB[n] > maxValue) {
-        maxValue = arrB[n];
+function main (a, b, c) { 
+    if(typeof(c) === 'function') {
+        return c(sum(a, b)) -2; //---тут додала -2 щоб перевірити чи спрацьовує перевірка на функцію
+    } else {
+        return sum(a, b);
     }
 }
 
-document.write(`Min value is ${minValue}`);
-document.write(`<br/ >`);
-document.write(`Max value is ${maxValue}`);
+    main(a, b, c);
+    console.log(main(a, b, c));
+    document.write(main(a, b, c)); //-------result of main function
+
+    document.write(`<hr/>`)
