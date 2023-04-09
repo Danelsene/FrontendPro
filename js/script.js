@@ -1,14 +1,10 @@
-const array = [1, 2, 3, 4, 5, 6, 7];
-
-function remove (arr, a){
-    const index = arr.indexOf(a);
-    if(index === -1) {
-        console.log(`There is no such an element as ${a}`);
-    } else {
-        return arr.splice(index, 1);
+let pow = function(x, n) {
+    if(n != 1) {
+        return x * pow(x, n-1);
+    }
+    else {
+        return x;
     }
 }
 
-remove(array, 5);
-
-console.log(array);
+alert(pow(2,5));
