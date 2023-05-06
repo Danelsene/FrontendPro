@@ -45,9 +45,14 @@ class Human {
 }
   
 	const human1 = new Human('John', 25);
+	console.log(human1);
 	const human2 = new Human('Mary', 16);
+	console.log(human2);
 	const car1 = new Car('Toyota', 'Corolla', 2021, 'AB1234', human1);
+	console.log(car1);
 	const car2 = new Car('Honda', 'Civic', 2019, 'CD5678', human2);
+	console.log(car2);
+
 
 		car1.owner = human1;
 		car2.owner = human2;
