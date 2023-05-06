@@ -1,119 +1,56 @@
-let kitchenProducts = [
-	{
-		type: 'grater',
-		price: 10
-	},
-	{
-		type: 'pastry-bag',
-		price: 25
-	},
-	{
-		type: 'scale',
-		price: 5
-	},
-	{
-		type: 'whisk',
-		price: 15
+// let human = {
+// 	name: this.name,
+// 	age: this.age,
+// 	constructor: function(name, age){
+// 		return `My name is ${name} and I'm ${age} years old`
+// 	},
+// 	getConsole: function(){
+// 		console.log(this);
+// 	}
+// }
+
+// console.log(human.constructor('Baby', 14));
+// console.log(human.getConsole());
+
+
+class Human {
+	constructor(name, age) {
+	  this.name = name;
+	  this.age = age;
 	}
-];
-
-let devicesProducts = [
-	{
-		type: 'desktop',
-		price: [100,1000]
-	},
-	{
-		type: 'laptop',
-		price: [50,1500]
-	},
-	{
-		type: 'smartphone',
-		price: [80,2000]
-	},
-	{
-		type: 'tablet',
-		price: [20,1300]
+	getInfo() {
+	  console.log(`Name: ${this.name}, Age: ${this.age}`);
 	}
-];
+  }
 
-let cosmeticsProducts = [
-	{
-		type: 'blush',
-		price: 100
-	},
-	{
-		type: 'eyeshadow',
-		price: 50
-	},
-	{
-		type: 'lipstick',
-		price: 80
-	},
-	{
-		type: 'nail-polish',
-		price: 200
-	},
-	{
-		type: 'perfume',
-		price: 300,
+  console.log(new Human("Mary", 35));
+  
+
+  class Car {
+	constructor(brand, model, year, number, owner) {
+	  this.brand = brand;
+	  this.model = model;
+	  this.year = year;
+	  this.number = number;
+	 	this.owner = owner;
 	}
-];
-
-let Kitchen = {
-    category: 'Kitchen'
-};
-
-let Devices = {
-    category: 'Devices'
-};
-
-let Cosmetics = {
-    category: 'Cosmetics'
-};
-
-let modProducts = [];
-
-let getProto = (arr, proto) => {
-    modProducts = arr
-    .map(products => {
-        let newProducts = Object.create(proto);
-        for(let key in products) {
-            newProducts[key] = products[key];
-        }
-        return newProducts;
-    })
-    return modProducts;
+	getInfo() {
+	  console.log(`Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}, Number: ${this.number}`);
+	  if (this.owner.age < 18) {
+		console.log('Sorry, the owner should be older than 18');
+	  } else {
+		this.owner.getInfo();
+	}
+  	}
 }
+  
+	const human1 = new Human('John', 25);
+	const human2 = new Human('Mary', 16);
+	const car1 = new Car('Toyota', 'Corolla', 2021, 'AB1234', human1);
+	const car2 = new Car('Honda', 'Civic', 2019, 'CD5678', human2);
 
-arr = [
-    getProto(kitchenProducts, Kitchen),
-    getProto(devicesProducts, Devices),
-    getProto(cosmeticsProducts, Cosmetics)
-]
-
-// console.log(modProducts)
-
-let renderArr = [];
-let newarr = [];
-
-arr.forEach(element => {
-    element.map(obj => {
-		console.log(obj.category)
-        renderArr.push(`<div class="category_box">
-                            <div class="category_img">
-                                <img src="img/${obj.type}.svg" alt="">
-                            </div>
-                            <div class="category_title">
-                                <p class="title_name">Name:
-                                    <span> ${obj.type}</span>
-                                </p>
-                                <p class="title_price">Price:
-                                    <span> $${Array.isArray(obj.price) === true ? String(obj.price[0])+-+String(obj.price[1]) : obj.price}</span>
-                                </p>
-                            </div>
-                        </div>`)
-    })
-    document.write(`<div class="category"> <span class="category__main_title"> Category: ${element[0].category} </span> ${renderArr.join('')}</div>`);
-	console.log(renderArr.join(''))
-    renderArr.splice(0);
-})
+		car1.owner = human1;
+		car2.owner = human2;
+	
+	car1.getInfo();
+	car2.getInfo();
