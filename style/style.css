@@ -43,6 +43,7 @@ body{
 
 form {
   margin-bottom: 20px;
+  padding-top: 100px;
 }
 
 label {
@@ -59,7 +60,7 @@ input[type="number"] {
   margin-bottom: 20px;
 }
 
-button[type="submit"],
+button[type="button"],
 #generateTableButton {
   padding: 8px 16px;
   background-color: rgb(55, 12, 80);
@@ -76,6 +77,217 @@ button[type="submit"],
 }
 
 .cars_main_image{
-  max-width: 800px;
+  max-width: 700px;
 }
 
+/*---------------------------------------------------------------------------------------------*/
+
+.title_slider{
+  text-align: center;
+  padding-top: 20px;
+}
+
+#slider_section{
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  visibility: visible;
+}
+
+#slider {
+  position: relative;
+  width: 1200px;
+  height: 600px;
+  overflow: hidden;
+}
+
+#slider img {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 100%;
+}
+
+#slider img:first-child {
+  display: block;
+}
+
+#prevBtn,
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#prevBtn:hover,
+#nextBtn:hover{
+  background-color: rgb(241, 208, 136);
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+.main_button{
+  text-align: center;
+  margin-top: 20px;
+}
+
+#start_ride{
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(55, 12, 80);
+  color:rgb(240, 240, 116);
+}
+
+#start_ride:hover{
+  width: 20%;
+color: rgb(54, 131, 175);
+}
+
+/*------------------------------------------------------------------------------*/
+
+#container {
+  position: relative;
+  width: 1600px;
+  height: 500px;
+  padding-top: 200px;
+}
+
+.image {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-image: url('../images/free-icon-car-3202903.png');
+  background-size: cover;
+}
+
+.cars_animation{
+  text-align: center;
+}
+
+.start_anim{
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(55, 12, 80);
+  color:rgb(240, 240, 116);
+}
+
+.start_anim:hover{
+width: 20%;
+color: rgb(54, 131, 175);
+}
+
+.seeTable{
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(55, 12, 80);
+  color:rgb(240, 240, 116);
+}
+
+.seeTable:hover{
+width: 20%;
+color: rgb(54, 131, 175);
+}
+
+/*---------------------------------------------------------*/
+
+table {
+  width: 80%;
+  font-size: 30px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr {
+  background-color: #7031b8c2;
+}
+
+.forTable{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.styled-finish{
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(55, 12, 80);
+  color:rgb(240, 240, 116);
+  letter-spacing: 2px;
+}
+
+.styled-finish:hover{
+  width: 30%;
+  color: rgb(54, 131, 175);
+  }
+
+/*----------------------------------------------------------------------*/
+
+.winner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.retry{
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(55, 12, 80);
+  color:rgb(240, 240, 116);
+  letter-spacing: 2px;
+}
+
+.retry:hover{
+  width: 30%;
+  color: rgb(54, 131, 175);
+  }
+
+#winner_text{
+  font-size: 30px;
+}
