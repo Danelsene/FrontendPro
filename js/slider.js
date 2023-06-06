@@ -95,7 +95,7 @@ function handleClick(event) {
   const imageName = image.alt;
 
  
-  if (selectedImages.length <= storedParticipantNumber && !selectedImages.includes(imageName)) {
+  if (selectedImages.length < storedParticipantNumber && !selectedImages.includes(imageName)) {
     const randomName = getRandomName();
     selectedImages.push(`Car: ${imageName} -> Rider: ${randomName}`);
     selectedImagesDiv.innerHTML = selectedImages.join("<br>");
