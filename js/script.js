@@ -1,34 +1,71 @@
+// Функція для отримання записів з LocalStorage
+function getNotes() {
+  const notes = localStorage.getItem('notes');
+  if (notes) {
+    return notes.split(',');
+  }
+  return [];
+}
 
-const startButton = document.getElementById('start');
-const rallyMenu = document.getElementById('rallymenu');
+// Функція для збереження записів в LocalStorage
+function saveNotes(notes) {
+  localStorage.setItem('notes', notes.join(','));
+}
 
-startButton.addEventListener('click', function() {
-  rallyMenu.style.visibility = 'visible';
-});
+// Функція для додавання запису
+function addNote() {
+  const note = prompt('Введіть текст запису:');
+  if (note) {
+    const notes = getNotes();
+    notes.push(note);
+    saveNotes(notes);
+    renderNotes();
+  }
+}
 
-//----------------------------------------form------------------------------------//
+// Функція для видалення запису за індексом
+function deleteNote(index) {
+  const notes = getNotes();
+  notes.splice(index, 1);
+  saveNotes(notes);
+  renderNotes();
+}
 
-const form = document.getElementById('myForm');
-    const participantQuantity = document.getElementById('participantQuantity');
-    const formButton = document.getElementById('formButton');
-    
-    
-    formButton.addEventListener('click', function(event) {
-      event.preventDefault(); 
+// Функція для редагування запису за індексом
+function editNote(index) {
+  const notes = getNotes();
+  const updatedNote = prompt('Введіть новий текст запису:', notes[index]);
+  if (updatedNote) {
+    notes[index] = updatedNote;
+    saveNotes(notes);
+    renderNotes();
+  }
+}
 
-      var enteredNumber = parseInt(participantQuantity.value, 10);
+// Функція для відображення записів на екрані
+function renderNotes() {
+  const notesContainer = document.getElementById('noteContainer');
+  notesContainer.innerHTML = '';
 
-      if (enteredNumber >= 2 && enteredNumber <= 14) {
-        localStorage.setItem('participantNumber', enteredNumber);
-        let sliderPage = './page1.html';
-        window.location.href = sliderPage;
-        console.log(enteredNumber);
-      } else {
-        alert("Введене число не входить у діапазон від 2 до 14");
-      }
-    });
+  const notes = getNotes();
+  notes.forEach((note, index) => {
+    const noteElement = document.createElement('div');
+    noteElement.textContent = note;
 
-    
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Редагувати';
+    editButton.onclick = () => editNote(index);
 
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Видалити';
+    deleteButton.onclick = () => deleteNote(index);
 
-   
+    noteElement.appendChild(editButton);
+    noteElement.appendChild(deleteButton);
+
+    notesContainer.appendChild(noteElement);
+  });
+}
+
+// Відображення записів при завантаженні сторінки
+renderNotes();

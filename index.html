@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online rally Team 1</title>
+    <title>Нотатник</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -14,32 +14,12 @@
 
 <body>
     <header class="header">
-        <h1 class="title">Online Rally</h1>
-        <div class="buttons_div">
-            <button class="button_first" id="start">Почати заїзд</button>
-            <button class="button_first">Змінити дані</button>
-        </div>
+        <h1 class="title">Notepad</h1>
     </header>
     <hr>
-    <section class="rally_menu" id="rallymenu">
-        <h2 class="menu_title">Обери дані для заїзду</h2>
-        <div class="form_flex">
-        <div class="change_numbers">
-            <form id="myForm">
-                <label for="participantQuantity"> Обери кіл-сть учасників (від 2 до 14)</label>
-                <input type="number" id="participantQuantity" min="2" max="14" required>
-                <br>
-                <!-- <label for="voteCount">Обери кіл-сть журі(до 20)</label>
-                <input type="number" id="voteCount" required>
-                <br>
-                <label for="points">Введи бали оцінювання(наприклад 1,2,3,4)</label>
-                <input type="number" id="points" required>
-                <br> -->
-                <button type="button" class="form_submit" id="formButton">Далі</button>
-            </form>
-        </div>
-        <img src="./images/Cars-Movie-Characters.jpg" class="cars_main_image" alt="cars">
-        </div>
+    <section> 
+        <div id="noteContainer"></div>
+        <button onclick="addNote()">Додати запис</button>
     </section>
     <script src="./js/script.js"></script>
 </body>
